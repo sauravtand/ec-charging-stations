@@ -12,6 +12,8 @@ import {
 } from "@clerk/clerk-expo";
 SplashScreen.preventAutoHideAsync();
 import * as SecureStore from "expo-secure-store";
+import { NavigationContainer } from "@react-navigation/native";
+import TabNavigation from "./Navigations/TabNavigation.js";
 
 const tokenCache = {
   async getToken(key) {
@@ -59,7 +61,7 @@ export default function App() {
       <ClerkLoaded>
         <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
           <SignedIn>
-            <Text>You are signed in</Text>
+            <TabNavigation />
           </SignedIn>
 
           <SignedOut>
